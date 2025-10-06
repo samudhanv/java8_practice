@@ -1,7 +1,6 @@
 package in.eight.demos;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 // Three ways to create Natural numbers printing program
