@@ -1,0 +1,25 @@
+package in.eight.demos;
+
+import java.util.stream.IntStream;
+
+public class SquareSeries_8 {
+	public static void main(String[] args) {
+		int n=10;
+		
+		
+		 //IntStream.rangeClosed(1, n) .forEach(i -> System.out.print((i*i)+ " "));
+		 
+		 
+			/*
+			 * IntStream.rangeClosed(1, n) .map(i -> i*i) .forEach(i ->
+			 * System.out.println("i= "+i));
+			 */
+		
+		
+		IntStream.iterate(1, i -> i+1)
+		.limit(n) 
+		.forEach(i -> System.out.print((i*i)+" "));
+		
+		
+	}
+}
