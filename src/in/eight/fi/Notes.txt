@@ -1,0 +1,52 @@
+What is a functional interface? Can it have default/static methods?
+1.	A functional interface has exactly one abstract method (SAM). 
+2.	It may include any number of default and static methods.
+3.	May or may not be annotated with @FunctionalInterface.
+4.	Can be implemented using Classes, Anonymous class, and Lambda Expressions.
+
+What does @FunctionalInterface do?
+It instructs the compiler to enforce exactly one abstract method; compilation fails if more are present.
+
+
+Name common functional interfaces (pre & post Java 8).
+Pre-Java 8: Runnable, Comparable, Comparator. 
+Java 8: Predicate<T>, Function<T,R>, Consumer<T>, Supplier<T>, UnaryOperator<T>, BinaryOperator<T>, 
+and Bi* variants (BiPredicate, BiFunction, BiConsumer).
+
+
+What is a lambda expression? When can you use it?
+1.	Is an anonymous function which is widely used in functional programming.
+2.	It is a method without name, access specifier, and return type.
+3.	With lambdas code writing is simple, shot and readable.
+4.	Can be used to implement functional interfaces.
+
+
+Can you modify local variables inside a lambda?
+1. Captured local variables must be effectively final (not reassigned). e.g., LambdaDemo2
+2. You can mutate object state, but not reassign the captured reference. . e.g., LambdaDemo3
+
+
+Predicates are meant to apply to single elements, not collections.
+We can use Predicate<List<Employee>> but, Java 8’s functional style encourages:
+1. Applying a predicate to each element (e.g., Predicate<Employee>) not with collection (e.g., Predicate<List<Employee>>)
+2. Then combining it with stream operations (anyMatch, filter, etc.)
+
+
+Question: I can achieve the Predicate logic with simple stream filters using relational/logical operators 
+		  — so what’s the real purpose of Predicate in Java 8?
+		  
+Answer: 
+
+A Predicate is simply reusable, composable, boolean-valued function that answers a yes/no question.
+
+Inline filters work fine for small, one-time logic.
+But Predicates become powerful when you need to:
+
+✅ Reuse conditions across layers
+✅ Dynamically combine filters
+✅ Pass logic as parameters
+✅ Support runtime or user-driven filtering
+✅ Test or mock business logic independence
+
+NOTE: Reference "Java 8 lambda example" from ChatGPT history.
+
